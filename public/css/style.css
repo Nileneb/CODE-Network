@@ -494,3 +494,343 @@ footer p {
         margin: 5px;
     }
 }
+
+/* ========================================
+   NETWORK PAGE SPECIFIC STYLES
+   ======================================== */
+
+/* Active nav link */
+.nav-links a.active {
+    background-color: #45a049;
+    font-weight: bold;
+}
+
+/* Page Header */
+.page-header {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    margin: 0 -20px;
+    text-align: center;
+    border-bottom: 3px solid #4CAF50;
+}
+
+.page-title {
+    font-size: 36px;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.page-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin: 0 0 15px 0;
+}
+
+.page-description {
+    font-size: 16px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Search Section */
+.search-section {
+    padding: 30px 20px;
+    background-color: white;
+}
+
+.search-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.search-box {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tag {
+    padding: 8px 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.filter-tag:hover {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* Network Info Boxes */
+.network-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    margin: 0 -20px;
+}
+
+.info-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.info-box h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Contacts Section */
+.contacts-section {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contacts-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 28px;
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* Contacts Table */
+.contacts-table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.contact-row:hover {
+    background-color: #f9f9f9;
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+/* Contact columns */
+.col-name, .col-value, .col-tags, .col-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-name {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-role {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.value-note {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.value-note.placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tag-default {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+/* Contact Links */
+.contact-link {
+    display: block;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 25px 0;
+}
+
+/* Action Strip */
+.action-strip {
+    background-color: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    margin: 30px 0 0 0;
+    border-radius: 5px;
+}
+
+.action-hint {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive Adjustments for Network Page */
+@media only screen and (max-width: 768px) {
+    .table-header,
+    .contact-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .table-header {
+        display: none; /* Hide column headers on mobile */
+    }
+    
+    .contact-row {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .col-name::before {
+        content: "👤 ";
+        font-weight: bold;
+    }
+    
+    .col-value::before {
+        content: "💡 ";
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .col-tags::before {
+        content: "🏷️ ";
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .col-contact::before {
+        content: "📞 ";
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .contacts-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-tags {
+        justify-content: flex-start;
+    }
+    
+    .network-info {
+        grid-template-columns: 1fr;
+    }
+}
