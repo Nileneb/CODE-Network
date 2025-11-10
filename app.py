@@ -8,8 +8,8 @@ load_dotenv()
 
 app = Flask(__name__, template_folder='views', static_folder='public')
 
-# Database setup - Supabase PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SUPABASE_DB_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///contacts.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
