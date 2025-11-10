@@ -269,6 +269,22 @@ button:hover {
     color: #555;
 }
 
+/* Image Section */
+.image-section {
+    display: flex;
+    gap: 20px;
+    padding: 30px 20px;
+    background-color: #fff;
+    justify-content: center;
+}
+
+.image-section img {
+    width: 45%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+}
+
 /* Value Proposition */
 .value-prop {
     text-align: center;
@@ -492,6 +508,17 @@ footer p {
     .nav-links a {
         display: inline-block;
         margin: 5px;
+    }
+    
+    /* Stack images on mobile */
+    .image-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-section img {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
