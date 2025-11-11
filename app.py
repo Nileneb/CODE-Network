@@ -61,7 +61,7 @@ def add_contact_submit():
     
     selected_tags = request.form.getlist('tags')
     
-
+ 
     tags_string = ','.join(selected_tags)
     
     # Create new contact with all fields including tags
@@ -78,6 +78,47 @@ def add_contact_submit():
     )
     
     db.session.add(new_contact)
+    db.session.commit()
+    
+    return redirect(url_for('network'))
+
+@app.route('/edit-contact/<int:contact_id>')
+def edit_contact_form(contact_id):
+    # Find the contact by ID
+    contact = Contact.query.get_or_404(contact_id)
+    return render_template('edit-contact.html', contact=contact)
+
+@app.route('/edit-contact/<int:contact_id>', methods=['POST'])
+def edit_contact_submit(contact_id):
+    # Find the contact to update
+    contact = Contact.query.get_or_404(contact_id)
+    
+    # Update all fields with new data
+    contact.first_name = request.form.get('first_name')
+    contact.last_name = request.form.get('last_name')
+    contact.email = request.form.get('email')
+    contact.phone = request.form.get('phone')
+    contact.company = request.form.get('company')
+    contact.position = request.form.get('position')
+    contact.linkedin_url = request.form.get('linkedin_url')
+    contact.value_description = request.form.get('value_description')
+    
+    # Update tags
+    selected_tags = request.form.getlist('tags')
+    contact.tags = ','.join(selected_tags)
+    
+    # Save changes to database
+    db.session.commit()
+    
+    return redirect(url_for('network'))
+
+@app.route('/delete-contact/<int:contact_id>')
+def delete_contact(contact_id):
+    # Find the contact to delete
+    contact = Contact.query.get_or_404(contact_id)
+    
+    # Delete from database
+    db.session.delete(contact)
     db.session.commit()
     
     return redirect(url_for('network'))

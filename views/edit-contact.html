@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <h1>Edit Contact</h1>
+    
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('network') }}">View Network</a>
+        <a href="{{ url_for('add_contact_form') }}">Add Contact</a>
+    </nav>
+    
+    <br>
+    
+    <form action="{{ url_for('edit_contact_submit', contact_id=contact.id) }}" method="POST">
+        <label>First Name*</label>
+        <input type="text" name="first_name" value="{{ contact.first_name }}" required>
+        
+        <label>Last Name*</label>
+        <input type="text" name="last_name" value="{{ contact.last_name }}" required>
+        
+        <label>Email*</label>
+        <input type="email" name="email" value="{{ contact.email }}" required>
+        
+        <label>Phone</label>
+        <input type="text" name="phone" value="{{ contact.phone or '' }}">
+        
+        <label>Company</label>
+        <input type="text" name="company" value="{{ contact.company or '' }}">
+        
+        <label>Position</label>
+        <input type="text" name="position" value="{{ contact.position or '' }}">
+        
+        <label>LinkedIn URL</label>
+        <input type="text" name="linkedin_url" value="{{ contact.linkedin_url or '' }}">
+        
+        <label>Why valuable to CODE?</label>
+        <textarea name="value_description" rows="4">{{ contact.value_description or '' }}</textarea>
+        
+        <label>Tags (select all that apply)</label>
+        <div class="checkbox-group">
+            {% set current_tags = contact.tags.split(',') if contact.tags else [] %}
+            
+            <label class="checkbox-label">
+                <input type="checkbox" name="tags" value="Speaker" {% if 'Speaker' in current_tags %}checked{% endif %}> Speaker
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="tags" value="Mentor" {% if 'Mentor' in current_tags %}checked{% endif %}> Mentor
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="tags" value="Sponsor" {% if 'Sponsor' in current_tags %}checked{% endif %}> Sponsor
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="tags" value="Alumni" {% if 'Alumni' in current_tags %}checked{% endif %}> Alumni
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="tags" value="Partner" {% if 'Partner' in current_tags %}checked{% endif %}> Partner
+            </label>
+        </div>
+        
+        <br>
+        <div class="button-group">
+            <button type="submit" class="btn-save">Save Changes</button>
+            <a href="{{ url_for('network') }}" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>
+
