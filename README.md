@@ -1,38 +1,33 @@
 # CODE Network
 
-A simple web app for managing contacts in the CODE community.
+A contact management web application for the CODE community. Built with Python Flask and SQLite.
 
-## What it does
+## Features
 
-- Add contacts
-- View all contacts
-- Store contact info in a cloud database (Supabase)
+✨ **Full CRUD Operations**
+- ➕ Add new contacts with detailed information
+- 📋 View all contacts in a searchable directory
+- ✏️ Edit existing contact information
+- 🗑️ Delete contacts with confirmation
 
-## Setup
+🏷️ **Tags System**
+- Categorize contacts (Speaker, Mentor, Sponsor, Alumni, Partner)
+- Multiple tags per contact
+- Color-coded tag badges
 
-### 1. Create a Supabase account
+📱 **Responsive Design**
+- Mobile-friendly layout
+- Adapts to phone, tablet, and desktop screens
+- CSS Grid and Flexbox layouts
 
-1. Go to [supabase.com](https://supabase.com) and sign up
-2. Create a new project
-3. Wait for the database to be set up
+🎯 **Additional Features**
+- Recent contacts display on homepage
+- LinkedIn and email links
+- Professional, clean UI
 
-### 2. Get your database credentials
+## Quick Start
 
-1. Go to Project Settings > Database
-2. Find the "Connection String" section
-3. Copy the URI connection string (it looks like: `postgresql://postgres.[project-ref]:[password]@...`)
-
-### 3. Configure your environment
-
-Create a `.env` file in the `Project.py` folder:
-
-```bash
-SUPABASE_DB_URL=postgresql://postgres.[your-project-ref]:[your-password]@aws-0-[region].pooler.supabase.com:5432/postgres
-```
-
-Replace the placeholder values with your actual Supabase credentials.
-
-### 4. Install dependencies
+### 1. Install dependencies
 
 ```bash
 cd Project.py
@@ -40,29 +35,98 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 5. Run the app
+### 2. Run the app
 
+```bash
+bash run.sh
+```
+
+Or manually:
 ```bash
 python3 app.py
 ```
 
-Then go to: http://127.0.0.1:8080
+### 3. Open in browser
 
-The database tables will be created automatically on first run.
+Visit: http://localhost:8080
 
-## Technologies used
+The SQLite database will be created automatically on first run.
 
-- Python
-- Flask
-- Supabase (PostgreSQL)
-- SQLAlchemy
-- HTML/CSS
+## Project Structure
 
-## Files
+```
+Project.py/
+├── app.py              # Main Flask application
+├── views/              # HTML templates
+│   ├── Homepage.html
+│   ├── Network.html
+│   ├── add-contact.html
+│   └── edit-contact.html
+├── public/
+│   ├── css/style.css   # Responsive styling
+│   └── images/         # Image assets
+├── contacts.db         # SQLite database (auto-generated)
+├── requirements.txt    # Python dependencies
+└── run.sh             # Startup script
+```
 
-- `app.py` - main application
-- `views/` - HTML pages
-- `public/css/` - styling
-- `.env` - database credentials (not in git)
+## Technologies Used
 
-That's it!
+**Backend:**
+- Python 3.13
+- Flask 3.1.2 (Web framework)
+- SQLAlchemy 2.0.44 (ORM)
+- SQLite (Database)
+
+**Frontend:**
+- HTML5
+- CSS3 (Grid, Flexbox, Media Queries)
+- Jinja2 (Template engine)
+
+**Development:**
+- python-dotenv (Environment variables)
+- Virtual environment (venv)
+
+## Database Schema
+
+```python
+Contact:
+  - id (Primary Key)
+  - first_name (String, required)
+  - last_name (String, required)
+  - email (String, unique, required)
+  - phone (String)
+  - company (String)
+  - position (String)
+  - linkedin_url (String)
+  - value_description (Text)
+  - tags (String, comma-separated)
+```
+
+## Usage
+
+1. **Homepage** - Overview with recent contacts
+2. **View Network** - Browse all contacts with filtering
+3. **Add Contact** - Form to create new contacts
+4. **Edit Contact** - Update existing contact information
+5. **Delete Contact** - Remove contacts (with confirmation)
+
+## Development Notes
+
+- Uses SQLite for simplicity (easy setup, no external database needed)
+- Responsive breakpoints: 600px (mobile), 768px (tablet), 1024px+ (desktop)
+- Tags stored as comma-separated strings for simplicity
+- Auto-creates database tables on first run
+
+## Future Improvements
+
+- Search functionality
+- Pagination for large datasets
+- User authentication (Flask-Login)
+- Export contacts to CSV
+- Database migrations (Flask-Migrate)
+- API endpoints for mobile app
+
+---
+
+Built for the CODE community 🚀
