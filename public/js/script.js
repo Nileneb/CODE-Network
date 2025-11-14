@@ -14,39 +14,28 @@ function checkForm(){
 
 
 // search functionality 
-
+// Note ToDo: figure out how to actually filter the contacts
 function searchContacts(){
     var input=document.querySelector('.search-box');
     if(input){
         var searchTerm=input.value.toLowerCase();
         console.log("searching for: "+searchTerm);
-
-
     }
 }
 
 
-function confirmDelete(name){
-    var result=confirm("Are you sure you want to delete "+name+"?");
-    return result;
-}
-
-
-// button hover thing 
-function buttonEffect(){
-    var btns=document.querySelectorAll('.btn');
-    for(var i=0; i<btns.length; i++){
-        btns[i].addEventListener('mouseover',function(){
-            console.log('button hovered');
+// burger menu for mobile - finally figured this out!
+function setupBurgerMenu(){
+    var burger=document.querySelector('.burger-menu');
+    var navLinks=document.querySelector('.nav-links');
+    
+    if(burger && navLinks){
+        burger.addEventListener('click',function(){
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+            console.log('menu toggled');
         });
     }
-}
-
-
-var clickCount=0;
-function countClicks(){
-    clickCount++;
-    console.log("total clicks: "+clickCount);
 }
 
 
@@ -54,16 +43,10 @@ function countClicks(){
 window.onload=function(){
     console.log("page loaded!");
     
-
     var searchBox=document.querySelector('.search-box');
     if(searchBox){
         searchBox.addEventListener('keyup',searchContacts);
     }
     
-    buttonEffect();
-    
-    
+    setupBurgerMenu();
 };
-
-
-// Note TODO: figure out how to actually filter the contacts
