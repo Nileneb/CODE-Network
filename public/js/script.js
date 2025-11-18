@@ -14,7 +14,7 @@ function checkForm(){
 
 
 // search functionality 
-// Note ToDo: figure out how to actually filter the contacts
+// how to actually filter the contacts?
 function searchContacts(){
     var input=document.querySelector('.search-box');
     if(input){
