@@ -5,7 +5,7 @@ import os
 
 load_dotenv()
 
-port = int(os.getenv("PORT", "8080"))
+port = int(os.getenv("PORT"))
 app = Flask(__name__, template_folder='views', static_folder='public')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///contacts.db'
