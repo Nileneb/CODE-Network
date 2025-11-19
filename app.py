@@ -6,7 +6,8 @@ import os
 load_dotenv()
 
 port = int(os.getenv("PORT", 10000))
-database_url = os.getenv("SUPABASE_DB_URL")
+# Use Supabase if available, otherwise use SQLite for local development
+database_url = os.getenv("SUPABASE_DB_URL") or 'sqlite:///contacts.db'
 app = Flask(__name__, template_folder='views', static_folder='public')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
