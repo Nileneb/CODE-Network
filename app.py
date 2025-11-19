@@ -5,10 +5,11 @@ import os
 
 load_dotenv()
 
-port = int(os.getenv("PORT"))
+port = int(os.getenv("PORT", 10000))
+database_url = os.getenv("SUPABASE_DB_URL")
 app = Flask(__name__, template_folder='views', static_folder='public')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///contacts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 # Database maybe add more fields?
