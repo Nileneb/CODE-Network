@@ -5,6 +5,7 @@ import os
 
 load_dotenv()
 
+port = int(os.getenv("PORT", "8080"))
 app = Flask(__name__, template_folder='views', static_folder='public')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///contacts.db'
@@ -135,4 +136,4 @@ def show_person(contact_id):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=port)
